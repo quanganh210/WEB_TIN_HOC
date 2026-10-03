@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BBTINPRO - THPT Bất Bạt</title>
+    <!-- FontAwesome icons & Google Font -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background-color: #0b1120;
+        color: #f8fafc;
+        line-height: 1.5;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* HEADER & NAVBAR */
+      header {
+        background-color: #0b1120;
+        border-bottom: 1px solid #1e293b;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .navbar {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 20px;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: #1e3a8a;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #3b82f6;
+        color: #60a5fa;
+        font-size: 18px;
+      }
+
+      .logo-text h1 {
+        font-size: 18px;
+        font-weight: 800;
+        color: #38bdf8;
+        letter-spacing: 0.5px;
+      }
+
+      .logo-text span {
+        font-size: 11px;
+        color: #94a3b8;
+        display: block;
+        margin-top: -3px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .nav-links a {
+        color: #cbd5e1;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #38bdf8;
+      }
+
+      .nav-links a.active {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .icon-btn {
+        background: transparent;
+        border: none;
+        color: #cbd5e1;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .auth-btns {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 1px solid #334155;
+        color: #f8fafc;
+      }
+
+      .btn-outline:hover {
+        border-color: #38bdf8;
+        color: #38bdf8;
+      }
+
+      .btn-primary {
+        background: #2563eb;
+        color: #ffffff;
+      }
+
+      .btn-primary:hover {
+        background: #1d4ed8;
+      }
+
+      /* CONTAINER */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px 20px;
+      }
+
+      /* HERO SECTION */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+
+      .hero-title {
+        font-size: 42px;
+        font-weight: 800;
+        color: #38bdf8;
+        margin-bottom: 12px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+        font-weight: 600;
+        color: #f1f5f9;
+        margin-bottom: 16px;
+      }
+
+      .hero-desc {
+        color: #94a3b8;
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 15px;
+      }
+
+      .hero-banner {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #1e293b;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        background: #1e293b;
+        height: 280px;
+      }
+
+      .hero-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+      }
+
+      .hero-banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(15, 23, 42, 0.2) 0%,
+          rgba(15, 23, 42, 0.85) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .school-badge {
+        width: 90px;
+        height: 90px;
+        background: #1e3a8a;
+        border-radius: 50%;
+        border: 3px solid #3b82f6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .school-badge i {
+        font-size: 28px;
+        color: #ffffff;
+      }
+
+      .school-badge span {
+        font-size: 9px;
+        font-weight: 800;
+        margin-top: 4px;
+      }
+      .school-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+      .banner-quote {
+        font-style: italic;
+        font-size: 15px;
+        color: #e2e8f0;
+        font-weight: 500;
+      }
+
+      /* CATEGORIES / FEATURES GRID */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+
+      .feature-card {
+        background: #0f172a;
+        border: 1px solid #1e293b;
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        gap: 12px;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
+        cursor: pointer;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-3px);
+        border-color: #334155;
+      }
+
+      .feature-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+
+      .icon-blue {
+        background: #1e3a8a;
+        color: #60a5fa;
+      }
+      .icon-green {
+        background: #064e3b;
+        color: #34d399;
+      }
+      .icon-purple {
+        background: #4c1d95;
+        color: #a78bfa;
+      }
+      .icon-orange {
+        background: #7c2d12;
+        color: #fb923c;
+      }
+      .icon-teal {
+        background: #134e4a;
+        color: #2dd4bf;
+      }
+
+      .feature-info h4 {
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 4px;
+        color: #f8fafc;
+      }
+
+      .feature-info p {
+        font-size: 11px;
+        color: #94a3b8;
+        line-height: 1.3;
+      }
+
+      /* MAIN CONTENT LAYOUT (CONTESTS + SIDEBAR) */
+      .main-layout {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 25px;
+        margin-bottom: 40px;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .section-title {
+        font-size: 18px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .section-title i {
+        color: #f59e0b;
+      }
+
+      .view-all {
+        font-size: 12px;
+        color: #38bdf8;
+        font-weight: 500;
+      }
+
+      /* CONTEST CARDS */
+      .contest-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+
+      .contest-card {
+        background: #0f172a;
+        border: 1px solid #1e293b;
+        border-radius: 12px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contest-status {
+        align-self: flex-start;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 10px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      .status-active {
+        background: rgba(239, 68, 68, 0.2);
+        color: #f87171;
+      }
+      .status-upcoming {
+        background: rgba(59, 130, 246, 0.2);
+        color: #60a5fa;
+      }
+      .status-ended {
+        background: rgba(16, 185, 129, 0.2);
+        color: #34d399;
+      }
+
+      .contest-icon-box {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        font-size: 18px;
+      }
+
+      .contest-card h3 {
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .contest-sub {
+        font-size: 11px;
+        color: #94a3b8;
+        margin-bottom: 12px;
+      }
+
+      .contest-meta {
+        font-size: 11px;
+        color: #64748b;
+        display: flex;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+
+      .contest-time {
+        font-size: 11px;
+        color: #64748b;
+        margin-bottom: 16px;
+      }
+
+      .contest-btn {
+        margin-top: auto;
+        width: 100%;
+        text-align: center;
+        padding: 8px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      /* SIDEBAR */
+      .sidebar-box {
+        background: #0f172a;
+        border: 1px solid #1e293b;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 20px;
+      }
+
+      .user-welcome {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      .user-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #334155;
+        margin: 0 auto 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #94a3b8;
+        font-size: 20px;
+      }
+
+      .user-welcome h4 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .user-welcome p {
+        font-size: 11px;
+        color: #64748b;
+      }
+
+      .sidebar-auth-btns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .stats-title {
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .stat-item {
+        background: #1e293b;
+        padding: 10px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .stat-num {
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .stat-label {
+        font-size: 10px;
+        color: #94a3b8;
+      }
+
+      .news-item {
+        padding: 8px 0;
+        border-bottom: 1px solid #1e293b;
+      }
+
+      .news-item:last-child {
+        border-bottom: none;
+      }
+
+      .news-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: #38bdf8;
+        margin-bottom: 4px;
+        display: block;
+      }
+
+      .news-date {
+        font-size: 10px;
+        color: #64748b;
+      }
+
+      /* LOCATION FILTER */
+      .filter-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        background: #0f172a;
+        border: 1px solid #1e293b;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 11px;
+        color: #94a3b8;
+        cursor: pointer;
+      }
+
+      .tag.active {
+        background: #2563eb;
+        color: #ffffff;
+        border-color: #2563eb;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <div class="navbar">
+        <div class="logo-container">
+          <div class="logo-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="logo-text">
+            <h1>BBTINPRO</h1>
+            <span>THPT Bất Bạt</span>
+          </div>
+        </div>
+
+        <ul class="nav-links">
+          <li>
+            <a href="#" class="active"
+              ><i class="fa-solid fa-house"></i> Trang chủ</a
+            >
+          </li>
+          <li><a href="#">Đề thi</a></li>
+          <li><a href="#">Contest</a></li>
+          <li><a href="#">Ôn luyện</a></li>
+          <li><a href="#">Bảng xếp hạng</a></li>
+          <li><a href="#">Tài liệu</a></li>
+          <li><a href="#">Giới thiệu</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <button class="icon-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <button class="icon-btn"><i class="fa-regular fa-sun"></i></button>
+          <div class="auth-btns">
+            <button class="btn btn-outline">Đăng nhập</button>
+            <button class="btn btn-primary">Đăng ký</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <div class="hero-left">
+          <h1 class="hero-title">BBTINPRO</h1>
+          <h2 class="hero-subtitle">
+            Nền tảng luyện thi Tin học – Kết nối đam mê, chinh phục ước mơ!
+          </h2>
+          <p class="hero-desc">
+            BBTINPRO là website học tập và luyện thi Tin học dành cho học sinh
+            THPT, đặc biệt là các bạn yêu thích và muốn chinh phục các kỳ thi
+            học sinh giỏi Tin học các cấp. Cùng BBTINPRO, bạn sẽ được tiếp cận
+            với kho đề thi phong phú, cập nhật liên tục và các công cụ học tập
+            hiệu quả!
+          </p>
+          <div class="hero-btns">
+            <button class="btn btn-primary" style="padding: 10px 20px">
+              <i class="fa-solid fa-rocket"></i> Bắt đầu luyện thi
+            </button>
+            <button class="btn btn-outline" style="padding: 10px 20px">
+              <i class="fa-solid fa-trophy"></i> Khám phá contest
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-banner">
+          <img
+            src="https://afamilycdn.com/150157425591193600/2026/4/20/thpt-bat-bat-1553-153152-1776674072077-17766740724642147208507.jpg"
+            alt="School"
+          />
+          <div class="hero-banner-overlay">
+            <div class="school-badge">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span>THPT BẤT BẠT</span>
+            </div>
+            <p class="banner-quote">"Tri thức hôm nay - Thành công ngày mai"</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES / CATEGORIES -->
+      <section class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon icon-blue">
+            <i class="fa-regular fa-file-code"></i>
+          </div>
+          <div class="feature-info">
+            <h4>Đề thi phong phú</h4>
+            <p>Đầy đủ các tỉnh thành, cập nhật liên tục</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-green">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div class="feature-info">
+            <h4>Contest hấp dẫn</h4>
+            <p>Thử thách bản thân, nhận phần thưởng</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-purple">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="feature-info">
+            <h4>Ôn luyện hiệu quả</h4>
+            <p>Lý thuyết, bài tập, đề mẫu có đáp án</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-orange">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="feature-info">
+            <h4>Bảng xếp hạng</h4>
+            <p>So tài cùng bạn bè, khẳng định bản thân</p>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-teal">
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+          </div>
+          <div class="feature-info">
+            <h4>Tài liệu hữu ích</h4>
+            <p>Tổng hợp kiến thức, code mẫu, kinh nghiệm thi</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAIN CONTENT (CONTESTS + SIDEBAR) -->
+      <div class="main-layout">
+        <!-- LEFT: CONTESTS -->
+        <div>
+          <div class="section-header">
+            <div class="section-title">
+              <i class="fa-solid fa-trophy"></i> Các kỳ thi/Contest nổi bật
+            </div>
+            <a href="#" class="view-all"
+              >Xem tất cả <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="contest-list">
+            <!-- Contest 1 -->
+            <div class="contest-card">
+              <span class="contest-status status-active">Đang diễn ra</span>
+              <div class="contest-icon-box icon-purple">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+              <h3>HSG Tin học TP. Hà Nội</h3>
+              <p class="contest-sub">Kỳ thi học sinh giỏi Tin học lớp 12</p>
+              <div class="contest-meta">
+                <span><i class="fa-regular fa-file"></i> 35 câu</span>
+                <span><i class="fa-regular fa-clock"></i> 180 phút</span>
+              </div>
+              <div class="contest-time">
+                <i class="fa-regular fa-calendar"></i> 10/04/2025 - 15/04/2025
+              </div>
+              <button class="btn btn-primary contest-btn">
+                Tham gia ngay <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <!-- Contest 2 -->
+            <div class="contest-card">
+              <span class="contest-status status-upcoming">Sắp diễn ra</span>
+              <div class="contest-icon-box icon-blue">
+                <i class="fa-solid fa-city"></i>
+              </div>
+              <h3>HSG Tin học TP. Hồ Chí Minh</h3>
+              <p class="contest-sub">Kỳ thi học sinh giỏi Tin học lớp 12</p>
+              <div class="contest-meta">
+                <span><i class="fa-regular fa-file"></i> 40 câu</span>
+                <span><i class="fa-regular fa-clock"></i> 180 phút</span>
+              </div>
+              <div class="contest-time">
+                <i class="fa-regular fa-calendar"></i> 20/04/2025 - 25/04/2025
+              </div>
+              <button class="btn btn-outline contest-btn">Xem chi tiết</button>
+            </div>
+
+            <!-- Contest 3 -->
+            <div class="contest-card">
+              <span class="contest-status status-ended">Đã kết thúc</span>
+              <div class="contest-icon-box icon-orange">
+                <i class="fa-solid fa-landmark"></i>
+              </div>
+              <h3>HSG Tin học Tỉnh Bắc Ninh</h3>
+              <p class="contest-sub">Kỳ thi học sinh giỏi Tin học lớp 12</p>
+              <div class="contest-meta">
+                <span><i class="fa-regular fa-file"></i> 30 câu</span>
+                <span><i class="fa-regular fa-clock"></i> 150 phút</span>
+              </div>
+              <div class="contest-time">
+                <i class="fa-regular fa-calendar"></i> 01/04/2025 - 05/04/2025
+              </div>
+              <button class="btn btn-outline contest-btn">Xem kết quả</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: SIDEBAR -->
+        <div>
+          <!-- User Login Box -->
+          <div class="sidebar-box">
+            <div class="user-welcome">
+              <div class="user-avatar">
+                <i class="fa-solid fa-user-astronaut"></i>
+              </div>
+              <h4>Chào bạn!</h4>
+              <p>Học tập mỗi ngày, tiến bộ mỗi ngày!</p>
+            </div>
+            <div class="sidebar-auth-btns">
+              <button class="btn btn-primary" style="justify-content: center">
+                Đăng nhập
+              </button>
+              <button class="btn btn-outline" style="justify-content: center">
+                Đăng ký
+              </button>
+            </div>
+          </div>
+
+          <!-- Stats Box -->
+          <div class="sidebar-box">
+            <div class="stats-title">
+              <i class="fa-solid fa-chart-simple" style="color: #38bdf8"></i>
+              Thống kê
+            </div>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <i class="fa-solid fa-file-code" style="color: #38bdf8"></i>
+                <div>
+                  <div class="stat-num">12</div>
+                  <div class="stat-label">Đề thi mới</div>
+                </div>
+              </div>
+              <div class="stat-item">
+                <i class="fa-solid fa-location-dot" style="color: #34d399"></i>
+                <div>
+                  <div class="stat-num">5</div>
+                  <div class="stat-label">Tỉnh thành</div>
+                </div>
+              </div>
+              <div class="stat-item">
+                <i class="fa-solid fa-users" style="color: #a78bfa"></i>
+                <div>
+                  <div class="stat-num">2,358</div>
+                  <div class="stat-label">Thành viên</div>
+                </div>
+              </div>
+              <div class="stat-item">
+                <i class="fa-solid fa-trophy" style="color: #fb923c"></i>
+                <div>
+                  <div class="stat-num">88</div>
+                  <div class="stat-label">Contest</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Box -->
+          <div class="sidebar-box">
+            <div class="section-header" style="margin-bottom: 10px">
+              <div class="stats-title" style="margin: 0">
+                <i class="fa-solid fa-bullhorn" style="color: #38bdf8"></i> Tin
+                tức & Thông báo
+              </div>
+              <a href="#" class="view-all"
+                >Xem tất cả <i class="fa-solid fa-arrow-right"></i
+              ></a>
+            </div>
+            <div class="news-list">
+              <div class="news-item">
+                <a href="#" class="news-title"
+                  >• Cập nhật đề thi HSG Tin học TP. Hà Nội 2025</a
+                >
+                <span class="news-date">2 ngày trước</span>
+              </div>
+              <div class="news-item">
+                <a href="#" class="news-title"
+                  >• Mở đăng ký Contest tháng 4 - Chủ đề: Cấu trúc dữ liệu</a
+                >
+                <span class="news-date">5 ngày trước</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FILTER BY LOCATION -->
+      <section>
+        <div class="section-header">
+          <div class="section-title">
+            <i class="fa-solid fa-location-dot" style="color: #ef4444"></i> Đề
+            thi theo tỉnh thành
+          </div>
+          <a href="#" class="view-all"
+            >Xem tất cả <i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="filter-tags">
+          <span class="tag active">Tất cả</span>
+          <span class="tag">Hà Nội</span>
+          <span class="tag">TP. Hồ Chí Minh</span>
+          <span class="tag">Đà Nẵng</span>
+          <span class="tag">Bắc Ninh</span>
+          <span class="tag">Hải Phòng</span>
+          <span class="tag">Quảng Ninh</span>
+          <span class="tag">Khác</span>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
